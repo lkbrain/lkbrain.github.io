@@ -2,7 +2,7 @@ import type { APIRoute } from 'astro';
 import { getCollection } from 'astro:content';
 import createSlug from '../lib/createSlug';
 
-const staticRoutes = ['', 'blog/', 'cv/', 'projects/', 'services/', 'store/'];
+const staticRoutes = ['', 'services/', 'projects/', 'blog/', 'cv/'];
 
 const escapeXml = (value: string) =>
   value
@@ -17,7 +17,6 @@ const formatDate = (value?: Date) => value?.toISOString().slice(0, 10);
 export const GET: APIRoute = async ({ site }) => {
   const base = site ?? new URL('http://localhost:4321');
   const blogEntries = await getCollection('blog');
-  const storeEntries = await getCollection('store');
 
   const tagRoutes = Array.from(
     new Set(blogEntries.flatMap((entry) => entry.data.tags ?? []))
@@ -28,10 +27,6 @@ export const GET: APIRoute = async ({ site }) => {
     ...blogEntries.map((entry) => ({
       path: `blog/${createSlug(entry.data.title, entry.slug)}/`,
       lastmod: formatDate(entry.data.pubDate),
-    })),
-    ...storeEntries.map((entry) => ({
-      path: `store/${entry.slug}/`,
-      lastmod: formatDate(entry.data.updatedDate),
     })),
     ...tagRoutes.map((path) => ({ path })),
   ];

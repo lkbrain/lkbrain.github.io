@@ -1,6 +1,6 @@
 {
-  "name": "astrofy",
-  "description": "Astrofy is a free and open-source template for your Personal Portfolio Website built with Astro and TailwindCSS. Create in minutes a website with Blog, CV, Project Section, Store and RSS Feed.",
+  "name": "yuxi-qian-personal-site",
+  "description": "Personal academic website of Yuxi Qian, built with Astro and deployed to GitHub Pages.",
   "type": "module",
   "version": "3.0.0",
   "private": true,

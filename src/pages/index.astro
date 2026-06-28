@@ -1,78 +1,72 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import HorizontalCard from "../components/HorizontalCard.astro";
-import { getCollection } from "astro:content";
-import createSlug from "../lib/createSlug"
-
-const posts = (await getCollection("blog")).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
-
-const last_posts = posts.slice(0, 3);
 ---
 
 <BaseLayout sideBarActiveItemID="home">
   <div class="pb-12 mt-5">
-    <div class="text-xl py-1">Hey there 👋</div>
-    <div class="text-5xl font-bold">I'm Manuel Ernesto</div>
-    <div class="text-3xl py-3 font-bold">Software Engineer and Entrepreneur</div>
+    <div class="text-xl py-1">Hello, I am</div>
+    <div class="text-5xl font-bold">Yuxi Qian</div>
+    <div class="text-3xl py-3 font-bold">钱昱希</div>
     <div class="py-2">
-      <text class="text-lg">
-        This is <b>Astrofy</b> a free and open-source template for your Personal Portfolio Website built with Astro and TailwindCSS.
-        Create in minutes a website with Blog, CV, Project Section, Store and RSS Feed. I hope you find
-        it useful!
-      </text>
+      <p class="text-lg leading-8">
+        I am an undergraduate student in the School of Physical Sciences at the University of Science and Technology of China,
+        minoring in Computer Science and Technology. I will join the School of Information Science and Technology at USTC as
+        a Ph.D. student in 2026.
+      </p>
+      <p class="text-lg leading-8 mt-4">
+        I am a member of MIRALab, where my research interest is AI for EDA: using machine learning and artificial intelligence
+        methods to improve electronic design automation workflows.
+      </p>
     </div>
-    <div class="mt-8">
-      <a class="btn" href="https://twitter.com/manuelernestog" target="_blank"> Let's connect!</a>
-      <a href="https://github.com/manuelernestog/astrofy" target="_blank" class="btn btn-outline ml-5">
-        Get This template
-      </a>
+    <div class="mt-8 flex flex-wrap gap-4">
+      <a class="btn" href="mailto:qianyx20040130@mail.ustc.edu.cn">Email me</a>
+      <a class="btn btn-outline" href="/cv">View CV</a>
+      <a class="btn btn-outline" href="/services">Research</a>
     </div>
   </div>
 
   <div>
-    <div class="text-3xl w-full font-bold mb-2">My last projects {"</>"}</div>
+    <div class="text-3xl w-full font-bold mb-2">Research Focus</div>
   </div>
 
   <HorizontalCard
-    title="Demo Project 1"
+    title="AI for EDA"
     img="/post_img.webp"
-    desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-    url="#"
-    badge="NEW"
+    desc="I am interested in applying AI techniques to electronic design automation, including learning-guided optimization and intelligent design-flow assistance."
+    url="/services"
+    target="_self"
+    badge="Research"
   />
   <div class="divider my-0"></div>
   <HorizontalCard
-    title="Demo Project 2"
+    title="Physics and Computing"
     img="/post_img.webp"
-    desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-    url="#"
-  />
-  <div class="divider my-0"></div>
-  <HorizontalCard
-    title="Demo Project 3"
-    img="/post_img.webp"
-    desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-    url="#"
-    badge="FOSS"
+    desc="My background combines physics training with a minor in computer science and technology, shaping my interest in computational approaches to complex engineering problems."
+    url="/cv"
+    target="_self"
   />
 
   <div>
-    <div class="text-3xl w-full font-bold mb-5 mt-10">Latest from blog</div>
+    <div class="text-3xl w-full font-bold mb-5 mt-10">Contact</div>
   </div>
 
-  {
-    last_posts.map((post) => (
-      <>
-        <HorizontalCard
-          title={post.data.title}
-          img={post.data.heroImage}
-          desc={post.data.description}
-          url={"/blog/" + createSlug(post.data.title, post.slug)}
-          target="_self"
-          badge={post.data.badge}
-        />
-        <div class="divider my-0" />
-      </>
-    ))
-  }
+  <div class="overflow-x-auto">
+    <table class="table">
+      <tbody>
+        <tr>
+          <th>Email</th>
+          <td><a class="link" href="mailto:qianyx20040130@mail.ustc.edu.cn">qianyx20040130@mail.ustc.edu.cn</a></td>
+        </tr>
+        <tr>
+          <th>Phone</th>
+          <td><a class="link" href="tel:+8613114051133">+86 13114051133</a></td>
+        </tr>
+        <tr>
+          <th>Affiliation</th>
+          <td>MIRALab, University of Science and Technology of China</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </BaseLayout>
