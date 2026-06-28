@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import TimeLineElement from "../components/cv/TimeLine.astro";
 ---
 
 <BaseLayout sideBarActiveItemID="home">
@@ -14,9 +15,49 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     </div>
     <div class="mt-8 flex flex-wrap gap-4">
       <a class="btn" href="mailto:qianyx20040130@mail.ustc.edu.cn">Email me</a>
-      <a class="btn btn-outline" href="/cv">View CV</a>
     </div>
   </div>
+
+  <div>
+    <div class="text-3xl w-full font-bold mb-5 mt-10">Profile</div>
+  </div>
+
+  <div class="mb-10 text-justify leading-8">
+    Yuxi Qian is a 2026 Ph.D. student at the University of Science and Technology of China (USTC) and a member of MIRA Lab.
+    His research focuses on <b>AI4EDA</b>, especially macro placement, global placement, and 3D chip design.
+  </div>
+
+  <div>
+    <div class="text-3xl w-full font-bold mb-5 mt-10">Education</div>
+  </div>
+
+  <div class="time-line-container grid gap-4 mb-10">
+    <TimeLineElement
+      title="Ph.D. Student"
+      subtitle="2026 to present, University of Science and Technology of China"
+    >
+      MIRA Lab. Research interests include AI4EDA, macro placement, global placement, and 3D chip design.
+    </TimeLineElement>
+    <TimeLineElement
+      title="B.S. Student"
+      subtitle="2022 to 2026, University of Science and Technology of China"
+    >
+      Minor in Computer Science and Technology.
+    </TimeLineElement>
+  </div>
+
+  <div>
+    <div class="text-3xl w-full font-bold mb-5 mt-10">Skills</div>
+  </div>
+
+  <ul class="list-disc md:columns-2 columns-1 mx-6 mb-10">
+    <li>AI4EDA</li>
+    <li>Macro Placement</li>
+    <li>Global Placement</li>
+    <li>3D Chip Design</li>
+    <li>Physics</li>
+    <li>Computer Science and Technology</li>
+  </ul>
 
   <div>
     <div class="text-3xl w-full font-bold mb-5 mt-10">Contact</div>
