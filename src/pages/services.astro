@@ -3,11 +3,73 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
 <BaseLayout title="Research" sideBarActiveItemID="services">
-  <div>
-    <div class="text-3xl w-full font-bold mb-5">Research</div>
+  <div class="mb-8">
+    <div class="text-3xl w-full font-bold mb-3">Research</div>
+    <p class="text-lg leading-8">
+      My current research focuses on AI4EDA, especially placement optimization for advanced chip design.
+    </p>
   </div>
 
-  <div class="mb-8 text-lg leading-8">
-    Content will be added later.
-  </div>
+  <article class="prose max-w-none">
+    <div class="mb-4">
+      <div class="badge badge-secondary mb-3">Research Blog</div>
+      <h1 class="text-3xl font-bold leading-tight">
+        FirePlace: Thermal-Aware Placement for 3D ICs
+      </h1>
+      <p class="opacity-75">
+        Notes on my TCAD work on thermal-aware macro and standard-cell placement for F2F-bonded 3D ICs.
+      </p>
+    </div>
+
+    <p>
+      As conventional 2D integrated circuits approach scaling limits, 3D ICs provide a promising path toward higher integration
+      density, shorter interconnects, and heterogeneous integration. However, vertical stacking also increases power density
+      and strengthens thermal coupling across dies, making hotspot mitigation a first-order concern during physical design.
+      Placement is a particularly important stage because macro and standard-cell locations shape both interconnect structure
+      and the thermal profile of the final design.
+    </p>
+
+    <p>
+      In this work, we propose <b>FirePlace</b>, a two-stage thermal-aware placement framework for F2F-bonded 3D ICs. The
+      framework combines mask-based macro placement with analytical standard-cell placement, aiming to reduce peak
+      temperature while maintaining competitive wirelength.
+    </p>
+
+    <h2>Macro Placement</h2>
+    <p>
+      For macro placement, FirePlace introduces <b>3D PowerMask</b>, a lightweight power-distribution-aware mask. It is combined
+      with <b>3D WireMask</b> to guide macros toward legal, thermally favorable locations while controlling wirelength
+      degradation. This stage is important because high-power macros often dominate the early thermal landscape and strongly
+      affect the remaining placement space for standard cells.
+    </p>
+
+    <h2>Standard-Cell Placement</h2>
+    <p>
+      For analytical standard-cell placement, FirePlace builds a compact thermal model based differentiable thermal objective.
+      The thermal term is optimized together with bistratal wirelength and density objectives, allowing the placer to account
+      for temperature during gradient-based optimization rather than treating thermal effects only as a post-placement check.
+    </p>
+
+    <h2>GPU Acceleration</h2>
+    <p>
+      Thermal evaluation can become a major runtime bottleneck. FirePlace precomputes and reuses the inverse thermal
+      conductance matrix, and accelerates major differentiable placement operators on GPUs. In the reported experiments, the
+      GPU implementation achieves an average per-iteration speedup of <b>33.576x</b>, with especially large acceleration for
+      the thermal operator.
+    </p>
+
+    <h2>Results</h2>
+    <p>
+      On ISPD 2005 full-flow cases, FirePlace reduces peak temperature by <b>12.5%</b> on average and reduces temperature range
+      by <b>30.4%</b>, while maintaining competitive wirelength. Cell-only experiments further show that the proposed
+      thermal-aware standard-cell placement improves thermal quality without sacrificing wirelength.
+    </p>
+
+    <h2>Takeaway</h2>
+    <p>
+      The key lesson is that thermal-aware 3D placement benefits from coordinated optimization across both macro placement and
+      standard-cell placement. By combining power-aware macro guidance, differentiable thermal modeling, and GPU acceleration,
+      FirePlace provides a practical placement framework for thermally challenging 3D IC designs.
+    </p>
+  </article>
 </BaseLayout>

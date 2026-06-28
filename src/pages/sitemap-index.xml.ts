@@ -1,6 +1,6 @@
 import type { APIRoute } from 'astro';
 
-const staticRoutes = ['', 'services/', 'projects/', 'cv/'];
+const staticRoutes = ['', 'services/', 'life/', 'cv/'];
 
 const escapeXml = (value: string) =>
   value
