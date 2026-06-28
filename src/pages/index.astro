@@ -1,0 +1,43 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout sideBarActiveItemID="home">
+  <div class="pb-12 mt-5">
+    <div class="text-xl py-1">Hello, I am</div>
+    <div class="text-5xl font-bold">Yuxi Qian</div>
+    <div class="py-2 mt-4">
+      <p class="text-lg leading-8">
+        I am a 2026 Ph.D. student at the University of Science and Technology of China (USTC) and a member of MIRA Lab.
+        My research field is <b>AI4EDA</b>, with interests focused on macro placement, global placement, and 3D chip design.
+      </p>
+    </div>
+    <div class="mt-8 flex flex-wrap gap-4">
+      <a class="btn" href="mailto:qianyx20040130@mail.ustc.edu.cn">Email me</a>
+      <a class="btn btn-outline" href="/cv">View CV</a>
+    </div>
+  </div>
+
+  <div>
+    <div class="text-3xl w-full font-bold mb-5 mt-10">Contact</div>
+  </div>
+
+  <div class="overflow-x-auto">
+    <table class="table">
+      <tbody>
+        <tr>
+          <th>Email</th>
+          <td><a class="link" href="mailto:qianyx20040130@mail.ustc.edu.cn">qianyx20040130@mail.ustc.edu.cn</a></td>
+        </tr>
+        <tr>
+          <th>Phone</th>
+          <td><a class="link" href="tel:+8613114051133">+86 13114051133</a></td>
+        </tr>
+        <tr>
+          <th>Affiliation</th>
+          <td>University of Science and Technology of China</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</BaseLayout>
